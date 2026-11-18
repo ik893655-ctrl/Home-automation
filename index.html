@@ -1,51 +1,265 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Industrial Automation</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="styles.css">
-<script type="module" src="app.js"></script>
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="Industrial Automation Dashboard - ESP32 Smart Control">
 
+  <title>Industrial Automation | MD Imran Hossen</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="module" src="app.js"></script>
 </head>
 
 <body>
 
-<div class="card">
+  <div class="app-container">
 
-  <h1>MD Imran Hossen</h1>
-  <h2>Mechatronics</h2>
-  
-  <div id="statusBadge" class="status-badge offline">Offline</div>
+    <!-- Header -->
+    <header class="topbar">
 
-  <!-- Login UI -->
-  <div id="authBox">
-    <input id="emailField" type="email" placeholder="Email" />
-    <input id="passwordField" type="password" placeholder="Password" />
-    <button id="loginBtn" class="btn login-btn">Login</button>
-    <p id="authMsg"></p>
+      <div class="brand">
+        <div class="brand-icon">⚙</div>
+
+        <div>
+          <h2>INDUSTRIAL<span>AUTOMATION</span></h2>
+          <p>SMART CONTROL SYSTEM</p>
+        </div>
+      </div>
+
+      <div class="header-status">
+        <span class="status-dot"></span>
+        <span id="statusBadge" class="status-badge offline">
+          Offline
+        </span>
+      </div>
+
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- Welcome Section -->
+      <section class="welcome-section">
+
+        <div>
+          <p class="eyebrow">CONTROL PANEL / ESP32</p>
+
+          <h1>Welcome to Your Dashboard</h1>
+
+          <p class="welcome-description">
+            Monitor and control your industrial devices remotely.
+          </p>
+        </div>
+
+        <div class="profile-card">
+          <div class="profile-avatar">IM</div>
+
+          <div>
+            <h3>MD Imran Hossen</h3>
+            <p>Mechatronics Engineer</p>
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- Login Section -->
+      <section id="authBox" class="auth-section">
+
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">SECURE ACCESS</p>
+            <h2>Account Login</h2>
+            <p>Login to access your automation system.</p>
+          </div>
+
+          <div class="lock-icon">🔐</div>
+        </div>
+
+        <div class="login-form">
+
+          <div class="input-group">
+            <label for="emailField">Email Address</label>
+
+            <input
+              id="emailField"
+              type="email"
+              placeholder="Enter your email"
+              autocomplete="username"
+            >
+          </div>
+
+          <div class="input-group">
+            <label for="passwordField">Password</label>
+
+            <input
+              id="passwordField"
+              type="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+            >
+          </div>
+
+          <button id="loginBtn" class="btn login-btn">
+            Login to Dashboard
+            <span>→</span>
+          </button>
+
+          <p id="authMsg" class="auth-message" aria-live="polite"></p>
+
+        </div>
+
+        <div class="security-note">
+          <span>🔒</span>
+          Your connection is protected by Firebase Authentication.
+        </div>
+
+      </section>
+
+
+      <!-- Control Dashboard -->
+      <section id="controlBox" class="control-section" style="display:none;">
+
+        <div class="section-heading">
+
+          <div>
+            <p class="eyebrow">DEVICE MANAGEMENT</p>
+            <h2>Device Control Panel</h2>
+            <p>Manage your connected ESP32 devices.</p>
+          </div>
+
+          <div class="device-indicator">
+            <span class="status-dot"></span>
+            ESP32 Controller
+          </div>
+
+        </div>
+
+
+        <!-- Device Cards -->
+        <div class="device-grid">
+
+          <!-- Light 1 -->
+          <article class="device-card">
+
+            <div class="device-top">
+              <div class="device-icon light-icon">💡</div>
+              <span class="device-number">DEVICE 01</span>
+            </div>
+
+            <h3>Light 1</h3>
+            <p class="device-description">Main Lighting Control</p>
+
+            <div id="gpio1Status" class="gpio-status">
+              <span class="status-dot"></span>
+              Status: OFF
+            </div>
+
+            <button
+              id="gpio1Btn"
+              class="gpio-button"
+              data-gpio="gpio1"
+              type="button"
+            >
+              Turn ON / OFF
+            </button>
+
+          </article>
+
+
+          <!-- Light 2 -->
+          <article class="device-card">
+
+            <div class="device-top">
+              <div class="device-icon light-icon">💡</div>
+              <span class="device-number">DEVICE 02</span>
+            </div>
+
+            <h3>Light 2</h3>
+            <p class="device-description">Secondary Lighting Control</p>
+
+            <div id="gpio2Status" class="gpio-status">
+              <span class="status-dot"></span>
+              Status: OFF
+            </div>
+
+            <button
+              id="gpio2Btn"
+              class="gpio-button"
+              data-gpio="gpio2"
+              type="button"
+            >
+              Turn ON / OFF
+            </button>
+
+          </article>
+
+
+          <!-- Fan 3 -->
+          <article class="device-card">
+
+            <div class="device-top">
+              <div class="device-icon fan-icon">🌀</div>
+              <span class="device-number">DEVICE 03</span>
+            </div>
+
+            <h3>Fan 3</h3>
+            <p class="device-description">Cooling System Control</p>
+
+            <div id="gpio3Status" class="gpio-status">
+              <span class="status-dot"></span>
+              Status: OFF
+            </div>
+
+            <button
+              id="gpio3Btn"
+              class="gpio-button"
+              data-gpio="gpio3"
+              type="button"
+            >
+              Turn ON / OFF
+            </button>
+
+          </article>
+
+        </div>
+
+
+        <!-- Logout -->
+        <div class="dashboard-footer">
+
+          <p>ESP32 Smart Automation System</p>
+
+          <button id="logoutBtn" class="btn logout-btn" type="button">
+            Logout
+          </button>
+
+        </div>
+
+      </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2026 MD Imran Hossen. All Rights Reserved.</p>
+      <p>Designed for Industrial Automation</p>
+    </footer>
+
   </div>
-
-  <!-- Control UI -->
-  <div id="controlBox" style="display:none;">
-
-    <button id="gpio1Btn" class="gpio-button" data-gpio="gpio1">Light 1</button>
-    <div id="gpio1Status" class="gpio-status">Status: OFF</div>
-
-    <button id="gpio2Btn" class="gpio-button" data-gpio="gpio2">Light 2</button>
-    <div id="gpio2Status" class="gpio-status">Status: OFF</div>
-
-    <button id="gpio3Btn" class="gpio-button" data-gpio="gpio3">Fan 3</button>
-    <div id="gpio3Status" class="gpio-status">Status: OFF</div>
-
-    <button id="logoutBtn" class="btn logout-btn">Logout</button>
-  </div>
-
-</div>
-
-<!-- JS + Firebase Integrated -->
-
 
 </body>
 </html>
