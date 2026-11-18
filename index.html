@@ -1,26 +1,18 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#071326">
 
-  <meta name="theme-color" content="#0b1220">
-  <meta name="description" content="Industrial Automation and ESP32 Smart Control Dashboard">
+  <title>Industrial Automation Pro | MD Imran Hossen</title>
 
-  <title>Industrial Automation | MD Imran Hossen</title>
-
-  <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
   <link rel="stylesheet" href="styles.css">
-
-  <!-- Firebase JavaScript -->
   <script type="module" src="app.js"></script>
 </head>
 
@@ -32,214 +24,195 @@
     <header class="topbar">
 
       <div class="brand">
-
         <div class="brand-icon">⚙</div>
-
-        <div class="brand-info">
+        <div>
           <h2>INDUSTRIAL AUTOMATION</h2>
           <p>SMART CONTROL SYSTEM</p>
         </div>
-
       </div>
 
-      <!-- Firebase Authentication Status -->
+      <div class="header-divider"></div>
+
+      <div class="profile-card">
+        <div class="profile-avatar">IM</div>
+        <div>
+          <h3>MD Imran Hossen</h3>
+          <p>Mechatronics</p>
+        </div>
+      </div>
+
       <div class="header-status">
-
         <span class="status-dot"></span>
-
-        <span id="statusBadge" class="status-badge offline">
-          Offline
-        </span>
-
+        <span id="statusBadge" class="status-badge offline">Offline</span>
       </div>
 
     </header>
 
 
-    <!-- MAIN -->
-    <main class="main-content">
+    <main>
 
-      <!-- WELCOME -->
-      <section class="welcome-section">
+      <!-- HERO -->
+      <section class="hero">
 
-        <div class="welcome-text">
+        <div class="hero-content">
+          <span class="hero-tag">⚡ ESP32 • FIREBASE • REAL-TIME CONTROL</span>
 
-          <p class="eyebrow">CONTROL PANEL / ESP32</p>
+          <p class="hero-small">WELCOME TO YOUR</p>
 
-          <h1>Welcome to Your Dashboard</h1>
+          <h1>
+            Smart Control<br>
+            <span>Dashboard</span>
+          </h1>
 
-          <p class="welcome-description">
-            Monitor and control your automation devices from anywhere.
+          <p class="hero-description">
+            Monitor and control your automation devices
+            from anywhere with a smart connected system.
           </p>
 
+          <div class="hero-features">
+            <span>● Smart Control</span>
+            <span>● Live Database</span>
+            <span>● Secure Access</span>
+          </div>
         </div>
 
-        <div class="profile-card">
-
-          <div class="profile-avatar">IM</div>
-
-          <div class="profile-info">
-            <h3>MD Imran Hossen</h3>
-            <p>Mechatronics</p>
+        <div class="hero-visual">
+          <div class="chip">
+            <span>ESP32</span>
+            <small>SMART CONTROLLER</small>
+            <div class="chip-lines">〰 〰 〰</div>
           </div>
-
+          <div class="circuit circuit-one"></div>
+          <div class="circuit circuit-two"></div>
+          <div class="hero-glow"></div>
         </div>
 
       </section>
 
 
-      <!-- LOGIN SECTION -->
+      <!-- LOGIN -->
       <section id="authBox" class="auth-section">
 
-        <div class="section-heading">
-
+        <div class="auth-heading">
+          <div class="auth-icon">🔐</div>
           <div>
-            <p class="eyebrow">SECURE ACCESS</p>
-            <h2>Account Login</h2>
-
-            <p>
-              Login to access your automation dashboard.
-            </p>
+            <span class="eyebrow">SECURE ACCESS</span>
+            <h2>Welcome Back</h2>
+            <p>Login to access your automation system.</p>
           </div>
-
-          <div class="lock-icon">🔐</div>
-
         </div>
-
 
         <div class="login-form">
 
-          <!-- EMAIL -->
           <div class="input-group">
-
-            <label for="emailField">
-              Email Address
-            </label>
-
+            <label for="emailField">Email Address</label>
             <input
-              type="email"
               id="emailField"
+              type="email"
               placeholder="Enter your email"
               autocomplete="username"
               required
             >
-
           </div>
 
-
-          <!-- PASSWORD -->
           <div class="input-group">
-
-            <label for="passwordField">
-              Password
-            </label>
-
+            <label for="passwordField">Password</label>
             <input
-              type="password"
               id="passwordField"
+              type="password"
               placeholder="Enter your password"
               autocomplete="current-password"
               required
             >
-
           </div>
 
-
-          <!-- LOGIN BUTTON -->
-          <button
-            type="button"
-            id="loginBtn"
-            class="btn login-btn"
-          >
+          <button id="loginBtn" class="login-btn" type="button">
             <span>Login to Dashboard</span>
             <span>→</span>
           </button>
 
-
-          <!-- ERROR / SUCCESS MESSAGE -->
-          <p
-            id="authMsg"
-            class="auth-message"
-            aria-live="polite"
-          ></p>
+          <p id="authMsg" class="auth-message" aria-live="polite"></p>
 
         </div>
 
-
-        <div class="security-note">
-          <span>🔒</span>
-          Secure authentication powered by Firebase.
+        <div class="auth-security">
+          <span>🛡</span>
+          Protected by Firebase Authentication
         </div>
 
       </section>
 
 
-      <!-- CONTROL DASHBOARD -->
-      <section
-        id="controlBox"
-        class="control-section"
-        style="display: none;"
-      >
+      <!-- DEVICE DASHBOARD -->
+      <section id="controlBox" class="control-section" style="display:none;">
 
-        <!-- DASHBOARD HEADING -->
-        <div class="section-heading">
-
+        <div class="dashboard-heading">
           <div>
-            <p class="eyebrow">DEVICE MANAGEMENT</p>
-
+            <span class="eyebrow">DEVICE MANAGEMENT</span>
             <h2>Device Control Panel</h2>
-
-            <p>
-              Manage your connected automation devices.
-            </p>
+            <p>Manage your connected automation devices.</p>
           </div>
 
-          <div class="device-indicator">
+          <div class="controller-label">
             <span class="status-dot"></span>
-            <span>ESP32 Controller</span>
+            ESP32 Controller
+          </div>
+        </div>
+
+
+        <!-- SUMMARY -->
+        <div class="summary-grid">
+
+          <div class="summary-card">
+            <div class="summary-icon">⚙</div>
+            <div>
+              <span>CONTROLLER</span>
+              <h3>ESP32</h3>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-icon">💡</div>
+            <div>
+              <span>LIGHT DEVICES</span>
+              <h3>02 Units</h3>
+            </div>
+          </div>
+
+          <div class="summary-card">
+            <div class="summary-icon">🌀</div>
+            <div>
+              <span>FAN DEVICES</span>
+              <h3>01 Unit</h3>
+            </div>
           </div>
 
         </div>
 
 
-        <!-- DEVICE GRID -->
+        <!-- DEVICE CARDS -->
         <div class="device-grid">
 
-
-          <!-- DEVICE 01 -->
           <article class="device-card">
 
             <div class="device-top">
-
-              <div class="device-icon light-icon">
-                💡
-              </div>
-
-              <span class="device-number">
-                DEVICE 01
-              </span>
-
+              <div class="device-icon light-icon">💡</div>
+              <span class="device-number">DEVICE 01</span>
             </div>
 
             <h3>Light 1</h3>
+            <p class="device-description">Main Lighting Control</p>
 
-            <p class="device-description">
-              Main Lighting Control
-            </p>
-
-            <div
-              id="gpio1Status"
-              class="gpio-status"
-            >
+            <div id="gpio1Status" class="gpio-status">
               <span class="status-dot"></span>
               <span>Status: OFF</span>
             </div>
 
             <button
-              type="button"
               id="gpio1Btn"
               class="gpio-button"
               data-gpio="gpio1"
+              type="button"
             >
               Turn ON
             </button>
@@ -247,40 +220,26 @@
           </article>
 
 
-          <!-- DEVICE 02 -->
           <article class="device-card">
 
             <div class="device-top">
-
-              <div class="device-icon light-icon">
-                💡
-              </div>
-
-              <span class="device-number">
-                DEVICE 02
-              </span>
-
+              <div class="device-icon light-icon">💡</div>
+              <span class="device-number">DEVICE 02</span>
             </div>
 
             <h3>Light 2</h3>
+            <p class="device-description">Secondary Lighting Control</p>
 
-            <p class="device-description">
-              Secondary Lighting Control
-            </p>
-
-            <div
-              id="gpio2Status"
-              class="gpio-status"
-            >
+            <div id="gpio2Status" class="gpio-status">
               <span class="status-dot"></span>
               <span>Status: OFF</span>
             </div>
 
             <button
-              type="button"
               id="gpio2Btn"
               class="gpio-button"
               data-gpio="gpio2"
+              type="button"
             >
               Turn ON
             </button>
@@ -288,66 +247,45 @@
           </article>
 
 
-          <!-- DEVICE 03 -->
           <article class="device-card">
 
             <div class="device-top">
-
-              <div class="device-icon fan-icon">
-                🌀
-              </div>
-
-              <span class="device-number">
-                DEVICE 03
-              </span>
-
+              <div class="device-icon fan-icon">🌀</div>
+              <span class="device-number">DEVICE 03</span>
             </div>
 
             <h3>Fan 3</h3>
+            <p class="device-description">Cooling System Control</p>
 
-            <p class="device-description">
-              Cooling System Control
-            </p>
-
-            <div
-              id="gpio3Status"
-              class="gpio-status"
-            >
+            <div id="gpio3Status" class="gpio-status">
               <span class="status-dot"></span>
               <span>Status: OFF</span>
             </div>
 
             <button
-              type="button"
               id="gpio3Btn"
               class="gpio-button"
               data-gpio="gpio3"
+              type="button"
             >
               Turn ON
             </button>
 
           </article>
-
 
         </div>
 
 
-        <!-- DASHBOARD FOOTER -->
-        <div class="dashboard-footer">
-
+        <!-- FOOTER ACTION -->
+        <div class="dashboard-bottom">
           <div>
-            <p>Industrial Automation System</p>
-            <span>ESP32 Smart Controller</span>
+            <h3>System Control</h3>
+            <p>ESP32 Smart Automation Platform</p>
           </div>
 
-          <button
-            type="button"
-            id="logoutBtn"
-            class="btn logout-btn"
-          >
-            Logout
+          <button id="logoutBtn" class="logout-btn" type="button">
+            ↪ Logout
           </button>
-
         </div>
 
       </section>
@@ -357,15 +295,8 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-
-      <p>
-        © 2026 MD Imran Hossen. All Rights Reserved.
-      </p>
-
-      <p>
-        Designed for Industrial Automation
-      </p>
-
+      <p>© 2026 MD Imran Hossen</p>
+      <p>Industrial Automation • Smart Control System</p>
     </footer>
 
   </div>
