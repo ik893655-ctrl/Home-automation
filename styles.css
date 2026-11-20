@@ -1,146 +1,66 @@
-  body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Segoe UI", sans-serif;
-    color: white;
-  }
-
-  .card {
-    width: 380px;
-    max-width: 92%;
-    padding: 28px 25px;
-    border-radius: 20px;
-    background: rgba(255,255,255,0.12);
-    backdrop-filter: blur(14px);
-    box-shadow: 0 10px 45px rgba(0,0,0,0.25);
-    text-align: center;
-  }
-
-  h1 {
-    margin-bottom: 10px;
-    font-size: 26px;
-    font-weight: bold;
-  }
-
-  .status-badge {
-    display: inline-block;
-    padding: 6px 15px;
-    border-radius: 50px;
-    font-size: 13px;
-    margin-bottom: 20px;
-  }
-  .online { background: #4caf50; }
-  .offline { background: #e53935; }
-
-  /* Center input elements nicely */
-  #authBox {
-    width: 100%;
-    text-align: center;
-  }
-
-  input {
-    width: 90%;
-    padding: 14px;
-    margin: 10px 0;
-    border-radius: 10px;
-    border: none;
-    outline: none;
-    font-size: 16px;
-    background: rgba(255,255,255,0.18);
-    color: white;
-    text-align: center;
-  }
-
-  /* Modern Global Button Style */
-  .btn {
-    width: 92%;
-    padding: 14px;
-    margin-top: 15px;
-    border-radius: 12px;
-    border: none;
-    font-size: 17px;
-    cursor: pointer;
-    color: white;
-    font-weight: 600;
-
-    background: linear-gradient(135deg, #03a9f4, #0277bd);
-    transition: 0.25s ease;
-    box-shadow: 0 6px 18px rgba(3, 169, 244, 0.35);
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* Ripple effect */
-  .btn:active::after {
-    content: "";
-    position: absolute;
-    width: 180%;
-    height: 180%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(255,255,255,0.4);
-    border-radius: 50%;
-    animation: ripple 0.5s ease-out;
-  }
-
-  @keyframes ripple {
-    from { transform: translate(-50%, -50%) scale(0.3); opacity: 1; }
-    to   { transform: translate(-50%, -50%) scale(1.8); opacity: 0; }
-  }
-
-  /* Logout Button Style */
-  .logout-btn {
-    background: linear-gradient(135deg, #e53935, #c62828);
-    box-shadow: 0 6px 18px rgba(229, 57, 53, 0.35);
-  }
-
-  /* Modern GPIO Buttons */
-  .gpio-button {
-    width: 100%;
-    padding: 16px;
-    margin: 20px 0 5px 0;
-    border-radius: 14px;
-    background: linear-gradient(135deg, #1f3b73, #274b8c);
-    border: none;
-    cursor: pointer;
-    font-size: 19px;
-    color: white;
-    transition: 0.25s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.35);
-    font-weight: 600;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .gpio-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(30,80,200,0.45);
-  }
-
-  .gpio-button.on {
-    background: linear-gradient(135deg, #00c853, #98ee99);
-    transform: translateY(-4px);
-    box-shadow: 0 10px 28px rgba(0,255,120,0.45);
-  }
-
-  .gpio-status {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #cfcfcf;
-  }
-
-  #authMsg {
-    margin-top: 10px;
-    color: #ffb3b3;
-    font-size: 14px;
-  }
-  input::placeholder {
-  color: rgba(255, 255, 255, 0.3);
+*{box-sizing:border-box}
+:root{
+  --ink:#10192e; --panel:#16213a; --raise:#1d2b4a; --line:#2c3d63;
+  --text:#eef2f8; --muted:#9aa8c4; --on:#3ddc97; --off:#e5594f; --accent:#4f8cff;
 }
+body{
+  margin:0; min-height:100vh; display:flex; justify-content:center; align-items:center;
+  padding:24px 16px; color:var(--text);
+  font-family:"Barlow","Segoe UI",sans-serif;
+  background-color:#dfe4ea;
+  background-image:linear-gradient(#cdd4dd 1px,transparent 1px),linear-gradient(90deg,#cdd4dd 1px,transparent 1px);
+  background-size:32px 32px;
+}
+.panel{
+  width:400px; max-width:100%; padding:28px 26px 26px; border-radius:18px;
+  background:var(--panel); border:1px solid var(--line);
+  box-shadow:0 2px 0 #0b1224, 0 24px 48px rgba(16,25,46,.35);
+}
+.head{display:flex; justify-content:space-between; align-items:flex-start; gap:12px}
+h1{margin:0; font:700 25px/1.15 "Barlow Semi Condensed",sans-serif; letter-spacing:.2px}
+h2{margin:4px 0 0; font-size:15px; font-weight:500; color:var(--muted)}
+.sub{margin:18px 0 20px; padding-top:14px; border-top:1px solid var(--line); color:var(--muted); font-size:14px}
 
+.status-badge{
+  display:inline-flex; align-items:center; gap:7px; padding:5px 12px; border-radius:999px;
+  font-size:13px; font-weight:600; background:var(--raise); border:1px solid var(--line); white-space:nowrap;
+}
+.status-badge::before{content:""; width:8px; height:8px; border-radius:50%; background:currentColor}
+.online{color:var(--on)} .offline{color:var(--off)}
+
+#authBox{text-align:left}
+.field{display:block; margin-bottom:14px}
+.field span{display:block; margin-bottom:6px; font-size:13px; font-weight:500; color:var(--muted)}
+input{
+  width:100%; padding:13px 14px; font:inherit; font-size:16px; color:var(--text);
+  background:var(--ink); border:1px solid var(--line); border-radius:10px; outline:none;
+  transition:border-color .2s, box-shadow .2s;
+}
+input::placeholder{color:#5d6d8f}
+input:focus{border-color:var(--accent); box-shadow:0 0 0 3px rgba(79,140,255,.25)}
+
+.btn{
+  width:100%; margin-top:6px; padding:13px; border:0; border-radius:10px; cursor:pointer;
+  font:600 16px "Barlow",sans-serif; color:#fff; background:var(--accent);
+  transition:filter .2s, transform .1s;
+}
+.btn:hover{filter:brightness(1.1)} .btn:active{transform:scale(.98)}
+.logout-btn{margin-top:22px; background:transparent; color:var(--muted); border:1px solid var(--line)}
+.logout-btn:hover{color:var(--text); border-color:var(--off); filter:none}
+#authMsg{margin:12px 0 0; min-height:18px; font-size:14px; color:#ff9d96}
+
+.device{margin-bottom:12px; border:1px solid var(--line); border-radius:14px; background:var(--raise); overflow:hidden}
+.gpio-button{
+  width:100%; display:flex; align-items:center; gap:14px; padding:16px; border:0; cursor:pointer;
+  background:transparent; color:var(--text); font:600 18px "Barlow",sans-serif; text-align:left;
+}
+.gpio-button svg{width:26px; height:26px; fill:none; stroke:var(--muted); stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; transition:stroke .25s}
+.gpio-button .name{flex:1}
+.switch{position:relative; width:50px; height:28px; border-radius:999px; background:#0d1528; border:1px solid var(--line); transition:background .25s,border-color .25s}
+.switch::after{content:""; position:absolute; top:3px; left:3px; width:20px; height:20px; border-radius:50%; background:var(--muted); transition:transform .25s, background .25s}
+.gpio-button.on svg{stroke:var(--on)}
+.gpio-button.on .switch{background:rgba(61,220,151,.18); border-color:var(--on)}
+.gpio-button.on .switch::after{transform:translateX(22px); background:var(--on)}
+.gpio-status{padding:9px 16px; font-size:14px; background:rgba(0,0,0,.18); border-top:1px solid var(--line)}
+.gpio-button:focus-visible,.btn:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
