@@ -1,53 +1,146 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Industrial Automation</title>
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Segoe UI", sans-serif;
+    color: white;
+  }
 
-<link rel="stylesheet" href="styles.css">
-<script type="module" src="app.js"></script>
+  .card {
+    width: 380px;
+    max-width: 92%;
+    padding: 28px 25px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 10px 45px rgba(0,0,0,0.25);
+    text-align: center;
+  }
 
-</head>
+  h1 {
+    margin-bottom: 10px;
+    font-size: 26px;
+    font-weight: bold;
+  }
 
-<body>
+  .status-badge {
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .online { background: #4caf50; }
+  .offline { background: #e53935; }
 
-<div class="card">
+  /* Center input elements nicely */
+  #authBox {
+    width: 100%;
+    text-align: center;
+  }
 
-  <h1>MD Imran Hossen</h1>
-  <h2>Mechatronics</h2>
-  
-  <div id="statusBadge" class="status-badge offline">Offline</div>
+  input {
+    width: 90%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: rgba(255,255,255,0.18);
+    color: white;
+    text-align: center;
+  }
 
-  <!-- Login UI -->
-  <div id="authBox">
-    <input id="emailField" type="email" placeholder="Email" />
-    <input id="passwordField" type="password" placeholder="Password" />
-    <button id="loginBtn" class="btn login-btn">Login</button>
-    <p id="authMsg"></p>
-  </div>
+  /* Modern Global Button Style */
+  .btn {
+    width: 92%;
+    padding: 14px;
+    margin-top: 15px;
+    border-radius: 12px;
+    border: none;
+    font-size: 17px;
+    cursor: pointer;
+    color: white;
+    font-weight: 600;
 
-  <!-- Control UI -->
-  <div id="controlBox" style="display:none;">
+    background: linear-gradient(135deg, #03a9f4, #0277bd);
+    transition: 0.25s ease;
+    box-shadow: 0 6px 18px rgba(3, 169, 244, 0.35);
+    position: relative;
+    overflow: hidden;
+  }
 
-    <button id="gpio1Btn" class="gpio-button" data-gpio="gpio1">Light 1</button>
-    <div id="gpio1Status" class="gpio-status">Status: OFF</div>
+  /* Ripple effect */
+  .btn:active::after {
+    content: "";
+    position: absolute;
+    width: 180%;
+    height: 180%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255,255,255,0.4);
+    border-radius: 50%;
+    animation: ripple 0.5s ease-out;
+  }
 
-    <button id="gpio2Btn" class="gpio-button" data-gpio="gpio2">Light 2</button>
-    <div id="gpio2Status" class="gpio-status">Status: OFF</div>
+  @keyframes ripple {
+    from { transform: translate(-50%, -50%) scale(0.3); opacity: 1; }
+    to   { transform: translate(-50%, -50%) scale(1.8); opacity: 0; }
+  }
 
-    <button id="gpio3Btn" class="gpio-button" data-gpio="gpio3">Fan 3</button>
-    <div id="gpio3Status" class="gpio-status">Status: OFF</div>
+  /* Logout Button Style */
+  .logout-btn {
+    background: linear-gradient(135deg, #e53935, #c62828);
+    box-shadow: 0 6px 18px rgba(229, 57, 53, 0.35);
+  }
 
-    <button id="logoutBtn" class="btn logout-btn">Logout</button>
-  </div>
+  /* Modern GPIO Buttons */
+  .gpio-button {
+    width: 100%;
+    padding: 16px;
+    margin: 20px 0 5px 0;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #1f3b73, #274b8c);
+    border: none;
+    cursor: pointer;
+    font-size: 19px;
+    color: white;
+    transition: 0.25s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.35);
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+  }
 
-</div>
+  .gpio-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(30,80,200,0.45);
+  }
 
-<!-- JS + Firebase Integrated -->
+  .gpio-button.on {
+    background: linear-gradient(135deg, #00c853, #98ee99);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(0,255,120,0.45);
+  }
 
+  .gpio-status {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #cfcfcf;
+  }
 
-</body>
-</html>
-
+  #authMsg {
+    margin-top: 10px;
+    color: #ffb3b3;
+    font-size: 14px;
+  }
+  input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
 
